@@ -7,6 +7,7 @@ This module provides a command line interface for interacting with
 the HBNB application.
 """
 
+
 from models import storage
 from models.amenity import Amenity
 from models.base_model import BaseModel
