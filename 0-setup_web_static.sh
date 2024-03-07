@@ -10,7 +10,13 @@ sudo ufw allow 'Nginx HTTP'
 
 sudo mkdir -p /data/web_static/{releases/test,shared}
 
-echo "<!DOCTYPE html><html><head><title>Test Page</title></head><body><h1>Holberton School</h1></body></html>" | sudo tee /data/web_static/releases/test/index.html >/dev/null
+echo "<html>
+        <head>
+        </head>
+        <body>
+          Holberton School
+        </body>
+      </html>" | sudo tee /data/web_static/releases/test/index.html >/dev/null
 
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
