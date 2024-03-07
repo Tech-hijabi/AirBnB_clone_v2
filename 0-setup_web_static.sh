@@ -6,6 +6,8 @@ if ! command -v nginx &>/dev/null; then
     sudo apt-get install -y nginx
 fi
 
+sudo ufw allow 'Nginx HTTP'
+
 sudo mkdir -p /data/web_static/{releases/test,shared}
 
 echo "<!DOCTYPE html><html><head><title>Test Page</title></head><body><h1>Holberton School</h1></body></html>" | sudo tee /data/web_static/releases/test/index.html >/dev/null
@@ -20,5 +22,3 @@ sudo sed -i '/^server {/a \
     }' /etc/nginx/sites-available/default
 
 sudo service nginx restart
-
-exit 0
