@@ -10,13 +10,16 @@ sudo ufw allow 'Nginx HTTP'
 
 sudo mkdir -p /data/web_static/{releases/test,shared}
 
-echo "<html>
-        <head>
-        </head>
-        <body>
-          Holberton School
-        </body>
-      </html>" | sudo tee /data/web_static/releases/test/index.html >/dev/null
+cat << EOF | sudo tee /data/web_static/releases/test/index.html >/dev/null
+<html>
+  <head>
+  </head>
+  <body>
+    Holberton School
+  </body>
+</html>
+EOF
+
 
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
@@ -28,3 +31,5 @@ sudo sed -i '/^server {/a \
     }' /etc/nginx/sites-available/default
 
 sudo service nginx restart
+
+exit 0
